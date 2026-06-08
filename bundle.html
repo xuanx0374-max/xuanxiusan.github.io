@@ -16,7 +16,7 @@ body{font-family:'Noto Sans SC',sans-serif;background:linear-gradient(135deg,#ea
 
 /* ═══ VIDEO INTRO ═══ */
 #video-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:1000;background:#000;display:flex;align-items:center;justify-content:center;transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
-#video-overlay video{width:100%;height:100%;object-fit:cover}
+#video-overlay video{width:100%;height:100%;object-fit:contain;background:#000}
 #video-overlay.shrunk{width:160px;height:90px;top:20px;left:20px;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.2);background:transparent}
 #video-overlay.shrunk video{border-radius:12px;object-fit:contain}
 #video-overlay.hidden{opacity:0;pointer-events:none}
