@@ -257,7 +257,11 @@ footer{text-align:center;padding:2rem;padding-bottom:calc(2rem + env(safe-area-i
 
 <!-- ═══ VIDEO INTRO ═══ -->
 <div id="video-overlay">
-  <video id="intro-video" src="校徽.mp4" data-video="optional" autoplay playsinline webkit-playsinline muted preload="auto"></video>
+  <video id="intro-video" autoplay playsinline webkit-playsinline muted preload="auto">
+      <source src="logo.mp4" media="(min-width:769px)">
+      <source src="logo-sm.mp4" media="(max-width:768px)">
+      <source src="logo-sm.mp4">
+    </video>
   <div id="skip-hint" onclick="skipVideo()">跳过 ›</div>
 </div>
 
@@ -527,8 +531,8 @@ document.querySelectorAll('.num-card .n').forEach(n => counterObs.observe(n));
 <script>
 (function(){
   var v=document.getElementById('intro-video');
-  v.onerror=v.onstalled=function(){skipVideo();};
-  setTimeout(function(){if(v.readyState<2){var hint=document.getElementById("skip-hint");if(hint)hint.textContent="视频加载中... 点击跳过";}setTimeout(function(){if(v.readyState<2)skipVideo();},15000);},8000);
+  v.addEventListener('error',function(){console.log('video load error, trying next source');});
+  setTimeout(function(){if(v.readyState<2){var hint=document.getElementById('skip-hint');if(hint)hint.textContent='视频加载中... 点击跳过';}setTimeout(function(){if(v.readyState<2)skipVideo();},20000);},10000);
 })();
 </script>
 
